@@ -15,68 +15,53 @@ import androidx.core.view.WindowInsetsCompat;
 public class ThirdActivity extends AppCompatActivity {
 
     private Bundle extras;
-
     private TextView tvText;
     private TextView tvWholeNumber;
     private TextView tvNumberDecimal;
     private TextView tvSwitch;
     private Boolean switchState;
-
     private Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_third);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
+        //Inicializamos los componentes
         initializeComponents();
 
-        //Si pulsamos el boton btnReturn nos dirigiremos a la MainActivity de nuevo para poder volver a repetir de nuevo el proceso
+        //Si pulsamos el botón btnReturn nos dirigiremos a la MainActivity de nuevo
         btnReturn.setOnClickListener(v -> {
             Intent mainActivityIntent = new Intent(this, MainActivity.class);
             startActivity(mainActivityIntent);
         });
 
-
-    }
-
-    /**
-     * Este metodo se encarga de inicializar todos los componentes de la interfaz de usuario y otros
-     * objetos necesarios para el funcionamiento de la actividad
-     */
-    private void initializeComponents(){
-
-        btnReturn = findViewById(R.id.btnReturn);
-        extras = getIntent().getExtras();
-        switchState = extras.getBoolean("Switch");
-
-        tvText = findViewById(R.id.tvText);
+        //Mostramos los datos recibidos de la SecondActivity en los TextView correspondientes
         tvText.setText(tvText.getText() + extras.getString("Text"));
-
-        tvWholeNumber = findViewById(R.id.tvWholeNumber);
         tvWholeNumber.setText(tvWholeNumber.getText() + extras.getString("WholeNumber").toString());
-
-        tvNumberDecimal = findViewById(R.id.tvNumberDecimal);
         tvNumberDecimal.setText(tvNumberDecimal.getText() + extras.getString("NumberDecimal").toString());
 
-        tvSwitch = findViewById(R.id.tvSwitch);
-
+        //Obtenemos y mostramos el estado del switch (Activado/Desactivado)
+        switchState = extras.getBoolean("Switch");
         if (switchState){
             tvSwitch.setText(tvSwitch.getText() + "Activado");
         }else{
             tvSwitch.setText(tvSwitch.getText() + "Desactivado");
         }
+    }
 
+    /**
+     * Este método se encarga de inicializar todos los componentes de la interfaz de usuario y otros
+     * objetos necesarios para el funcionamiento de la actividad
+     */
+    private void initializeComponents(){
 
-
-
-
+        btnReturn = findViewById(R.id.btnReturn);
+        tvText = findViewById(R.id.tvText);
+        extras = getIntent().getExtras();
+        tvWholeNumber = findViewById(R.id.tvWholeNumber);
+        tvNumberDecimal = findViewById(R.id.tvNumberDecimal);
+        tvSwitch = findViewById(R.id.tvSwitch);
 
     }
 

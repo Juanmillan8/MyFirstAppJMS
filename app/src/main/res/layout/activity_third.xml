@@ -13,7 +13,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        android:background="@color/backgroundColor"
+        >
 
         <TextView
             android:id="@+id/tvTittle"
@@ -23,6 +25,7 @@
             android:textSize="40sp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:textColor="@color/white"
             />
 
         <TextView
@@ -31,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Texto insertado: "
             android:layout_marginTop="10dp"
+            android:textColor="@color/white"
             />
 
         <TextView
@@ -39,6 +43,7 @@
             android:layout_height="wrap_content"
             android:text="Número entero insertado: "
             android:layout_marginTop="20dp"
+            android:textColor="@color/white"
             />
 
         <TextView
@@ -47,14 +52,16 @@
             android:layout_height="wrap_content"
             android:text="Número decimal insertado: "
             android:layout_marginTop="20dp"
+            android:textColor="@color/white"
             />
 
         <TextView
             android:id="@+id/tvSwitch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="¿Switch activado?: "
+            android:text="Estado del Switch: "
             android:layout_marginTop="20dp"
+            android:textColor="@color/white"
             />
 
         <Button
@@ -63,6 +70,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="Volver al inicio" />
+            android:text="Volver al inicio"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/backgroundButton"
+            />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

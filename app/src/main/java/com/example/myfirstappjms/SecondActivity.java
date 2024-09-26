@@ -25,25 +25,24 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        //Inicializamos los componentes
         initializeComponents();
 
-        //Si pulsamos el boton btnGoToThirdActivity nos dirigiremos a la ThirdActivity pasandole ademas los datos que el usuario haya
+        //Si pulsamos el botón btnGoToThirdActivity nos dirigiremos a la ThirdActivity pasándole ademas los datos que el usuario haya
         //insertado en esta activity
         btnGoToThirdActivity.setOnClickListener(v -> {
             Intent thirdActivityIntent = new Intent(this, ThirdActivity.class);
-
             thirdActivityIntent.putExtra("WholeNumber", etWholeNumber.getText().toString());
             thirdActivityIntent.putExtra("NumberDecimal", etNumberDecimal.getText().toString());
             thirdActivityIntent.putExtra("Text", etText.getText().toString());
             thirdActivityIntent.putExtra("Switch", switch1.isChecked());
-
             startActivity(thirdActivityIntent);
         });
 
     }
 
     /**
-     * Este metodo se encarga de inicializar todos los componentes de la interfaz de usuario y otros
+     * Este método se encarga de inicializar todos los componentes de la interfaz de usuario y otros
      * objetos necesarios para el funcionamiento de la actividad
      */
     private void initializeComponents(){
@@ -52,7 +51,6 @@ public class SecondActivity extends AppCompatActivity {
         etNumberDecimal = findViewById(R.id.etNumberDecimal);
         etText = findViewById(R.id.etText);
         switch1 = findViewById(R.id.switch1);
-
     }
 
 }

@@ -15,9 +15,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Inicializamos los componentes
         initializeComponents();
 
-        //Si pulsamos el boton btnGoToSecondActivity nos dirigiremos a la SecondActivity
+        //Si pulsamos el botón btnGoToSecondActivity nos dirigiremos a la SecondActivity
         btnGoToSecondActivity.setOnClickListener(v -> {
             Intent secondActivityIntent = new Intent(this, SecondActivity.class);
             startActivity(secondActivityIntent);
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Este metodo se encarga de inicializar todos los componentes de la interfaz de usuario y otros
+     * Este método se encarga de inicializar todos los componentes de la interfaz de usuario y otros
      * objetos necesarios para el funcionamiento de la actividad
      */
     private void initializeComponents(){
